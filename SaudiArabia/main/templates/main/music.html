@@ -1,0 +1,203 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Music - Cultural Treasures{% endblock %}
+
+{% block content %}
+<style>
+.hero-music {
+  background: url("{% static 'images/music-hero.jfif' %}") center/cover no-repeat;
+  height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+.hero-music::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+.hero-music h1 {
+  position: relative;
+  z-index: 1;
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 0 0 15px #d4af37;
+  animation: fadeInDown 1.5s ease;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-header {
+  text-align: center;
+  color: #b68d2c;
+  margin: 5rem 0 3rem;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px rgba(212,175,55,0.4);
+}
+
+.music-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 5rem 10%;
+  position: relative;
+  overflow: hidden;
+}
+
+.cutom-padding {
+  padding-left: 10% !important;
+  padding-right: 10% !important;
+  padding-bottom: 5rem !important;
+  padding-top: 1.5rem !important;
+}
+
+.music-section:nth-child(even) {
+  background: #fff;
+}
+
+[data-bs-theme="dark"] .music-section:nth-child(even) {
+  background: #121212;
+}
+[data-bs-theme="dark"] .music-section:nth-child(odd) {
+  background: #1e1e1e;
+}
+
+[data-bs-theme="dark"] .music-text p {
+  color: white;
+}
+
+.music-section:nth-child(odd) {
+  background: linear-gradient(120deg, #fef5e3, #fff8f0);
+}
+
+.music-text {
+  flex: 1;
+  padding: 2rem;
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: all 0.9s ease;
+}
+
+.music-section:nth-child(even) .music-text {
+  transform: translateX(60px);
+}
+
+.music-text h2 {
+  color: #b68d2c;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.music-text p {
+  color: #3b3b3b;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.music-img {
+  flex: 1;
+  min-width: 300px;
+  height: 350px;
+  border-radius: 25px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+  opacity: 0;
+  transform: translateY(80px) scale(1.05);
+  transition: all 1s ease;
+  will-change: transform;
+}
+
+.music-section.show .music-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.music-section.show .music-img {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.music-img.parallax {
+  transform: translateY(calc(var(--scroll) * 0.2px)) scale(1.03);
+}
+.music-img.oud { background-image: url("{% static 'images/oud.jfif' %}"); }
+.music-img.drums { background-image: url("{% static 'images/tabl.jfif' %}"); }
+.music-img.folk { background-image: url("{% static 'images/saudi-singing.jpg' %}"); }
+.music-img.festival { background-image: url("{% static 'images/modern-singing.jfif' %}"); }
+</style>
+
+<section class="hero-music">
+  <h1>Traditional Saudi Music</h1>
+</section>
+
+<h2 class="section-header">Experience the Rhythm of Saudi Heritage</h2>
+
+
+<section class="music-section cutom-padding">
+  <div class="music-text">
+    <h2>The Heartbeat of the Oud</h2>
+    <p>The oud, a pear-shaped string instrument, is the soul of traditional Saudi melodies. Its deep, resonant tones echo through generations, symbolizing emotion, pride, and storytelling in music.</p>
+  </div>
+  <div class="music-img oud"></div>
+</section>
+
+<section class="music-section">
+  <div class="music-text">
+    <h2>Rhythms of the Desert</h2>
+    <p>Drums like the tabl and mirwas bring the heartbeat of the desert to life. Their steady rhythms accompany dances, songs, and ceremonies that connect people to their land and heritage.</p>
+  </div>
+  <div class="music-img drums"></div>
+</section>
+
+<section class="music-section">
+  <div class="music-text">
+    <h2>Voices of Tradition</h2>
+    <p>Folk singers and poets have long used their voices to share tales of love, courage, and unity. Each melody carries the spirit of the region it comes from, blending rhythm with poetry.</p>
+  </div>
+  <div class="music-img folk"></div>
+</section>
+
+<section class="music-section">
+  <div class="music-text">
+    <h2>Celebrating Music Today</h2>
+    <p>Modern Saudi musicians continue the legacy, blending traditional sounds with contemporary styles. Festivals and concerts now bring these cultural rhythms to the world stage.</p>
+  </div>
+  <div class="music-img festival"></div>
+</section>
+
+<script>
+const sections = document.querySelectorAll('.music-section');
+
+const revealOnScroll = () => {
+  sections.forEach(sec => {
+    const secTop = sec.getBoundingClientRect().top;
+    if (secTop < window.innerHeight - 150) {
+      sec.classList.add('show');
+    }
+  });
+};
+
+const parallaxImages = document.querySelectorAll('.music-img');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  parallaxImages.forEach(img => {
+    img.style.setProperty('--scroll', scrollTop);
+  });
+});
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+</script>
+
+{% endblock %}

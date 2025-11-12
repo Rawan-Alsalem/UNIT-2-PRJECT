@@ -1,0 +1,175 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Fashion - Cultural Treasures{% endblock %}
+
+{% block content %}
+<style>
+.hero-fashion {
+  background: url("{% static 'images/saudi-fabric.jpg' %}") center/cover no-repeat;
+  height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+.hero-fashion::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 0;
+}
+.hero-fashion h1 {
+  position: relative;
+  z-index: 1;
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 0 0 15px #d4af37;
+  animation: fadeInDown 1.5s ease;
+  z-index: 1;
+
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fashion-background {
+  background: linear-gradient(120deg, #fef5e3, #fff8f0, #fef5e3);
+  padding: 5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-bs-theme="dark"] .fashion-background{
+  background: linear-gradient(120deg, #383838, #2c2b2a, #2e2d2a);
+}
+
+.fashion-panel {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  overflow: hidden;
+  margin: 3rem auto;
+  transform: rotate(-2deg);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  opacity: 0;
+  animation: floatIn 1s forwards;
+}
+
+[data-bs-theme="dark"] .fashion-panel{
+  background: #1e1e1e;
+  color: white;
+}
+[data-bs-theme="dark"] .fashion-panel .panel-text p{
+  color: white;
+}
+
+.fashion-panel:nth-child(even) { transform: rotate(2deg); }
+
+.fashion-panel:hover {
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+}
+
+.fashion-panel img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.fashion-panel:hover img {
+  transform: scale(1.1);
+}
+
+.fashion-panel .panel-text {
+  padding: 2rem;
+  text-align: center;
+}
+
+.fashion-panel .panel-text h2 {
+  font-size: 1.8rem;
+  color: #b68d2c;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.fashion-panel .panel-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #3b3b3b;
+}
+
+
+@keyframes floatIn {
+  0% { opacity: 0; transform: translateY(50px) rotate(-2deg); }
+  100% { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+
+
+.section-header {
+  text-align: center;
+  color: #b68d2c;
+  margin-bottom: 4rem;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px rgba(212,175,55,0.4);
+}
+</style>
+
+
+<section class="hero-fashion">
+  <h1>Traditional Saudi Fashion</h1>
+</section>
+
+<div class="fashion-background">
+  <h2 class="section-header">Discover the Elegance of Saudi Style</h2>
+
+  <div class="fashion-panel" style="animation-delay: 0s;">
+    <img src="{% static 'images/abayas.jfif' %}" alt="Elegant Abayas">
+    <div class="panel-text">
+      <h2>Elegant Abayas</h2>
+      <p>Flowing abayas with delicate embroidery showcase timeless elegance and grace. Each design tells a story of tradition and style.</p>
+    </div>
+  </div>
+
+  <div class="fashion-panel" style="animation-delay: 0s;">
+    <img src="{% static 'images/saudi-thobe.jpg' %}" alt="Elegant Abayas">
+    <div class="panel-text">
+      <h2>Luxurous Saudi thobe</h2>
+      <p>The Saudi thobe (or thawb) is a traditional, ankle-length, loose-fitting robe with long sleeves, worn daily by men in Saudi Arabia</p>
+    </div>
+  </div>
+
+  <div class="fashion-panel" style="animation-delay: 0.2s;">
+    <img src="{% static 'images/embroidery.jfif' %}" alt="Intricate Embroidery">
+    <div class="panel-text">
+      <h2>Intricate Embroidery</h2>
+      <p>Handcrafted patterns highlight regional artistry. Colors and textures blend harmoniously, celebrating cultural heritage.</p>
+    </div>
+  </div>
+
+  <div class="fashion-panel" style="animation-delay: 0.4s;">
+    <img src="{% static 'images/tribalfashion.jpg' %}" alt="Regional Styles">
+    <div class="panel-text">
+      <h2>Regional Styles</h2>
+      <p>Distinct garments from every province display the diversity of Saudi fashion. Each piece is a tribute to local tradition and identity.</p>
+    </div>
+  </div>
+
+  <div class="fashion-panel" style="animation-delay: 0.6s;">
+    <img src="{% static 'images/jewelry.jfif' %}" alt="Traditional Jewelry">
+    <div class="panel-text">
+      <h2>Traditional Jewelry</h2>
+      <p>Gold, silver, and gemstone accessories elevate every outfit. Jewelry is a statement of pride and a celebration of heritage.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

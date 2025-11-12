@@ -1,0 +1,362 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Home - Cultural Treasures{% endblock %}
+{% block content %}
+
+<script>
+  const initialFontSize = "{{ font_size }}";
+
+  if (initialFontSize === 'large') {
+    document.documentElement.classList.add('large-font');
+  } else {
+    document.documentElement.classList.remove('large-font');
+  }
+</script>
+
+
+<section class="hero text-center text-white d-flex align-items-center justify-content-center position-relative overflow-hidden">
+  <div class="sparkle-container"></div>
+  <div class="content position-relative">
+    <h1 class="display-4 fw-bold fade-in-up">Discover Saudi Arabia’s Cultural Treasures</h1>
+    <p class="lead fade-in-up" style="animation-delay: .2s;">A journey through heritage, art, music, and more.</p>
+    <a href="{% url 'main:heritage_view' %}" class="btn btn-primary btn-lg mt-3 fade-in-up" style="animation-delay: .4s;">Start Exploring</a>
+  </div>
+</section>
+
+
+<section class="about-modern py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8 about-text fade-in-up">
+        <h6 class="text-uppercase  mb-3">About Cultural Treasures</h6>
+        <h2 class="fw-bold mb-4">Preserving Saudi Arabia’s Cultural Identity</h2>
+        <p>
+          Cultural Treasures is dedicated to showcasing the beauty, wisdom, and diversity of Saudi Arabia’s heritage.
+          From the intricate details of ancient architecture to the elegance of traditional attire and the rhythm of folk music,
+          our mission is to bridge the past and present — honoring the Kingdom’s legacy while inspiring future generations.
+            <button type="button" class="btn btn-link text-decoration-none p-0 ps-2" id="fontToggleBtn">
+            
+              <i class="fa fa-search-plus text-dark light-mode-icon" id="fontPlusLight"></i>
+              <i class="fa fa-search-plus text-light dark-mode-icon d-none" id="fontPlusDark"></i>
+              
+              <i class="fa fa-search-minus text-dark light-mode-icon d-none" id="fontMinusLight"></i>
+              <i class="fa fa-search-minus text-light dark-mode-icon d-none" id="fontMinusDark"></i>
+            </button>
+        </p>
+         
+      </div>
+
+      <div class="col-md-4 text-center fade-in-up" style="animation-delay:.3s;">
+        <div class="about-image">
+          <img src="{% static 'images/about-illustration.jpg' %}" alt="Saudi Heritage Illustration" class="img-fluid rounded-4 shadow">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="heritage-section py-5 text-center">
+  <div class="container">
+    <h2 class="mb-5 fw-bold">Heritage of Saudi Culture</h2>
+    <div class="heritage-cards d-flex flex-wrap justify-content-center gap-4">
+
+      <a href="{% url 'main:architecture_view' %}" style="text-decoration: none;">
+      <div class="card desert">
+        <div class="product">
+          <span class="category">Architecture</span>
+          <img src="{% static 'images/alula.png' %}" alt="Architecture">
+        </div>
+        <div class="title">
+          <h3>Timeless Beauty</h3>
+        </div>
+      </div></a>
+
+      <a href="{% url 'main:art_view' %}" style="text-decoration: none;">
+      <div class="card gold">
+        <div class="product">
+          <span class="category">Art</span>
+          <img src="{% static 'images/art-3.png' %}" alt="Art">
+        </div>
+        <div class="title">
+          <h3>Art Expression</h2>
+        </div>
+      </div></a>
+
+      <a href="{% url 'main:music_view' %}" style="text-decoration: none;">
+      <div class="card sand">
+        <div class="product">
+          <span class="category">Music</span>
+          <img src="{% static 'images/music-ksa.png' %}" alt="Music">
+        </div>
+        <div class="title">
+          <h3>Saudi Rhythms</h2>
+        </div>
+      </div></a>
+
+      <a href="{% url 'main:fashion_view' %}" style="text-decoration: none;">
+      <div class="card rose">
+        <div class="product">
+          <span class="category">Fashion</span>
+          <img src="{% static 'images/fasion-1.png' %}" alt="Fashion">
+        </div>
+        <div class="title">
+          <h3>Saudi Elegance</h2>
+        </div>
+      </div></a>
+
+    </div>
+  </div>
+</section>
+<section class="contact-section py-5 position-relative overflow-hidden">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4 mb-md-0 fade-in-up">
+        <h2 class="fw-bold mb-3">Get in Touch</h2>
+        <p class="mb-4 ">Have questions, ideas, or cultural stories to share? Reach out to us and let’s celebrate Saudi Arabia together.</p>
+        <div class="contact-info">
+          <p><strong>Email:</strong> <a href="mailto:info@culturaltreasures.sa" class="text-decoration-none">info@culturaltreasures.sa</a></p>
+          <p><strong>Phone:</strong> <a href="tel:+966500000000" class="text-decoration-none">+966 500 000 000</a></p>
+          <p><strong>Address:</strong> Riyadh, Saudi Arabia</p>
+        </div>
+      </div>
+      <div class="col-md-6 fade-in-up" style="animation-delay:.2s;">
+        <form class="contact-form p-4 rounded-4 shadow-sm border border-secondary-subtle" action="#" method="post">
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Your Name" required>
+          </div>
+          <div class="mb-3">
+            <input type="email" class="form-control" placeholder="Your Email" required>
+          </div>
+          <div class="mb-3">
+            <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.contact-section h2 {
+  font-size: 2rem;
+}
+.contact-section p {
+  line-height: 1.6;
+}
+.contact-info p a {
+  color:#006c67;
+  transition: color .3s ease;
+}
+.contact-info p a:hover {
+  color: #00a199;
+}
+.contact-form {
+  transition: transform .5s ease, box-shadow .5s ease;
+}
+.contact-form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+.contact-form .form-control {
+  border: 1px solid #ced4da;
+  color: #495057;
+}
+.contact-form .form-control::placeholder {
+  color: #6c757d;
+}
+.contact-form button {
+  background: #006c67;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  transition: all .3s ease;
+}
+.contact-form button:hover {
+  background: #00a199;
+  transform: translateY(-2px);
+}
+
+[data-bs-theme="dark"] .contact-info p a {
+  color: #00a199;}
+[data-bs-theme="dark"] .contact-info p a:hover  {
+  color: #00fff2;}
+
+html.large-font {
+  font-size: 1.25em; 
+}
+html.large-font h1 { font-size: 2.8rem; }
+html.large-font h2 { font-size: 2.2rem; }
+html.large-font .lead { font-size: 1.4rem; }
+
+.sparkle-container {position: absolute; inset: 0; overflow: hidden; pointer-events: none;}
+.sparkle {position: absolute; width: 3px; height: 3px; background: radial-gradient(circle, #ffd700 0%, #ffefba 70%, transparent 100%); border-radius: 50%; opacity: 0; animation: sparkleAnim 3s infinite ease-in-out;}
+@keyframes sparkleAnim {0%,100%{opacity:0;transform:scale(0.4)translateY(0);}50%{opacity:1;transform:scale(1.4)translateY(-10px);}}
+
+
+.fade-in, .fade-in-up {opacity:0; transform:translateY(20px); animation: fadeUp 1s forwards; animation-play-state: paused;}
+.fade-in.visible, .fade-in-up.visible {animation-play-state: running;}
+@keyframes fadeUp {to {opacity:1; transform:translateY(0);}}
+
+
+.section-title {font-size:2.2rem;font-weight:700;margin-bottom:1rem;}
+.section-desc {max-width:700px;margin:auto;font-size:1.1rem;}
+
+
+.explore-card img {transition: transform .5s ease;}
+.explore-card:hover img {transform: scale(1.05);}
+
+
+.contact-teaser {background:url("{% static 'images/desert-night.jpg' %}") center/cover fixed;}
+.contact-teaser .overlay {position:absolute;inset:0;background:rgba(0,0,0,0.6);}
+
+
+.about-modern {position:relative;overflow:hidden;}
+.about-text h6 {letter-spacing:2px;font-size:0.85rem;}
+.about-text h2 {font-size:2rem;line-height:1.3;}
+.about-text p {font-size:1.05rem;line-height:1.8;max-width:500px;}
+.about-image img {transition:transform .8s ease,box-shadow .5s ease;}
+.about-image:hover img {transform:scale(1.03);box-shadow:0 10px 25px rgba(0,0,0,0.1);}
+
+
+.heritage-section {background:#151125;color:white;overflow:hidden;}
+.heritage-section h3 {color:#e0c188;letter-spacing:1px;}
+.heritage-cards {gap:60px;}
+.card {width:240px;height:350px;border-radius:14px;cursor:pointer;color:#fff;position:relative;transition:all 0.3s ease-in-out;}
+.card .product {height:85%;padding:20px;display:flex;flex-direction:column;position:relative;}
+.product .number {font-size:70px;opacity:0.2;font-style:italic;line-height:1;}
+.product .category {font-size:28px;opacity:0.7;font-style:italic;}
+.product img {height:200px;position:absolute;top:50%;left:50%;transform:translate(-50%,-45%);transition:transform 0.4s ease;}
+.product .price {background:rgba(255,255,255,0.1);margin-top:auto;margin-left:auto;margin-right:-20px;padding:5px 20px;border-radius:99px 0 0 99px;font-size:0.9rem;}
+.card .title {height:15%;display:flex;align-items:center;justify-content:center;border-radius:0 0 14px 14px;}
+.card:hover .product img {transform:translate(-50%,-40%) scale(1.05);}
+.card.desert {background:linear-gradient(135deg,#a87438,#5b3a12);}
+.card.gold {background:linear-gradient(135deg,#c7a44a,#705a2b);}
+.card.sand {background:linear-gradient(135deg,#b69355,#6e4d21);}
+.card.rose {background:linear-gradient(135deg,#c08ea2,#6e3b5d);} 
+.card.desert .title {background:#8b5a2b;}
+.card.gold .title {background:#b08d38;}
+.card.sand .title {background:#a0733c;}
+.card.rose .title {background:#9b4d6b;}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+<script>
+VanillaTilt.init(document.querySelectorAll(".card"), {max:25,speed:500,glare:true,"max-glare":0.4});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{const s=document.querySelector('.sparkle-container');for(let i=0;i<70;i++){const d=document.createElement('div');d.classList.add('sparkle');d.style.top=Math.random()*100+'%';d.style.left=Math.random()*100+'%';d.style.animationDelay=(Math.random()*3)+'s';d.style.animationDuration=(2+Math.random()*2)+'s';s.appendChild(d);}const e=document.querySelectorAll('.fade-in, .fade-in-up');const o=new IntersectionObserver(t=>{t.forEach(r=>{if(r.isIntersecting)r.target.classList.add('visible');});},{threshold:0.1});e.forEach(a=>o.observe(a));});
+</script>
+
+<script>
+  function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+  const csrftoken = getCookie('csrftoken');
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    
+    const rootElement = document.documentElement;
+    const fontToggleBtn = document.getElementById("fontToggleBtn");
+    const plusLight = document.getElementById("fontPlusLight");
+    const plusDark = document.getElementById("fontPlusDark");
+    const minusLight = document.getElementById("fontMinusLight");
+    const minusDark = document.getElementById("fontMinusDark");
+    
+    
+    function getCurrentTheme() {
+        return rootElement.getAttribute("data-bs-theme");
+    }
+
+    
+    function updateFontToggleIcon() {
+        const currentTheme = getCurrentTheme();
+        const isCurrentLarge = rootElement.classList.contains("large-font");
+        if (isCurrentLarge) {
+            
+            if (currentTheme === 'dark') {
+                minusDark.classList.remove("d-none");
+                minusLight.classList.add("d-none");
+                plusDark.classList.add("d-none");
+                plusLight.classList.add("d-none");
+            } else { 
+                minusLight.classList.remove("d-none");
+                minusDark.classList.add("d-none");
+                plusLight.classList.add("d-none");
+                plusDark.classList.add("d-none");
+            }
+        } else {
+            if (currentTheme === 'dark') {
+                plusDark.classList.remove("d-none");
+                plusLight.classList.add("d-none");
+                minusDark.classList.add("d-none");
+                minusLight.classList.add("d-none");
+            } else { 
+                plusLight.classList.remove("d-none");
+                plusDark.classList.add("d-none");
+                minusLight.classList.add("d-none");
+                minusDark.classList.add("d-none");
+            }
+        }
+    }
+    
+    if (fontToggleBtn) {
+        fontToggleBtn.addEventListener('click', async () => {
+            try {
+                const response = await fetch("{% url 'main:toggle_font' %}", {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': csrftoken,
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    if (data.font_size === 'large') {
+                        rootElement.classList.add('large-font');
+                    } else {
+                        rootElement.classList.remove('large-font');
+                    }
+                    
+                    updateFontToggleIcon();
+                } else {
+                    console.error("Failed to toggle font size via server. Status:", response.status);
+                }
+
+            } catch (error) {
+                console.error("Error during font toggle fetch:", error);
+            }
+        });
+    }
+
+
+    updateFontToggleIcon();
+    
+    const themeToggleButton = document.getElementById("theme-toggle");
+    if (themeToggleButton) {
+        themeToggleButton.addEventListener('click', () => {
+
+             setTimeout(updateFontToggleIcon, 50); 
+        });
+    }
+
+  });
+</script>
+{% endblock %}

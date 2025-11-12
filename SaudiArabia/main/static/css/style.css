@@ -1,0 +1,375 @@
+/* ==========================
+   GLOBAL STYLE
+========================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+
+/* ==========================
+   COLOR VARIABLES
+========================== */
+:root {
+  --primary: #006c67;
+  --accent: #cda274;
+  --bg: #ffffff;
+  --text: #222;
+  --nav-bg: #f8f9fa;
+  --card-bg: #ffffff;
+  --footer-bg: #f3f3f3;
+  --hero-image: url('../images/day-ksa.png');
+}
+
+[data-bs-theme="dark"] {
+  --primary: #60d9cb;
+  --accent: #e6b980;
+  --bg: #121212;
+  --text: #f5f5f5;
+  --nav-bg: #1e1e1e;
+  --card-bg: #1e1e1e;
+  --footer-bg: #181818;
+  --hero-image: url('../images/night-ksa.png');
+}
+
+[data-bs-theme="dark"] .card-body{
+  background-color: #1e1e1e;
+}
+
+/* ==========================
+   NAVBAR
+========================== */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1030;
+  padding: 1rem 0;
+  background-color: transparent !important;
+  backdrop-filter: none;
+  box-shadow: none;
+  transition: all 0.4s ease-in-out;
+}
+
+.navbar-brand,
+.nav-link {
+  color: #ffffff !important;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  font-weight: 500;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.nav-link:hover {
+  color: var(--primary-light, #ffd86f) !important;
+  transform: scale(1.05);
+  transition: 0.2s ease;
+}
+
+/* When scrolled */
+.navbar-scrolled {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 0.6rem 0;
+  transition: all 0.4s ease;
+}
+
+.navbar-scrolled .navbar-brand,
+.navbar-scrolled .nav-link {
+  color: #ffffff !important;
+  text-shadow: none;
+}
+
+/* ==========================
+   HAMBURGER MENU
+========================== */
+.navbar-toggler {
+  border: none;
+  outline: none;
+  box-shadow: none !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,0.9)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Frosted dark glass ONLY when menu expanded */
+.navbar-collapse.show {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  margin-top: 0.8rem;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Menu links inside collapsed view */
+.navbar-collapse.show .nav-link {
+  color: #fff !important;
+  padding: 0.6rem 0;
+  font-size: 1.05rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-collapse.show .nav-link:last-child {
+  border-bottom: none;
+}
+
+.navbar-collapse.show .nav-link:hover {
+  color: #ffe082 !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* ==========================
+   THEME BUTTONS
+========================== */
+#audio-toggle,
+#theme-toggle {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+#audio-toggle:hover,
+#theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+/* Brand hover glow */
+.navbar-brand:hover {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+
+/* ==========================
+   HERO SECTION
+========================== */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  var(--hero-image) center/cover no-repeat;
+  height: 100vh;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 20px;
+  transition: background-image 0.4s ease; 
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+    color: #fff;
+
+}
+
+.hero a.btn {
+  background-color: var(--accent);
+  border: none;
+  color: #fff;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  margin-top: 25px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero a.btn:hover {
+  background-color: var(--primary);
+  transform: scale(1.05);
+}
+
+/* ==========================
+   SECTION STYLES
+========================== */
+.container {
+  max-width: 1200px;
+}
+
+h2 {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+p {
+  color: var(--text);
+}
+
+/* ==========================
+   CARDS
+========================== */
+.card {
+  border: none;
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.card img {
+  height: 230px;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+.footer {
+  background-color: var(--footer-bg);
+  color: var(--text);
+  font-size: 0.95rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-title {
+  font-weight: 700;
+  color: var(--primary, #60d9cb);
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-text {
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.footer-links a {
+  color: var(--text);
+  text-decoration: none;
+  display: inline-block;
+  margin: 0.3rem 0;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #d4af37;
+  transform: scale(1.2);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Socials */
+.footer-social .social-link {
+  font-size: 1.3rem;
+  color: var(--text);
+  transition: 0.3s ease;
+}
+
+.footer-social .social-link:hover {
+  color: var(--primary, #60d9cb);
+  transform: scale(1.2);
+}
+
+.footer-email {
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+/* Saudi Pattern Strip */
+.saudi-pattern-strip {
+  background-image: url('../images/pattern-footer.png');
+  background-repeat: repeat-x;
+  background-size: contain;
+  height: 60px;
+  margin-top: 2rem;
+  filter: brightness(1.1);
+  opacity: 0.9;
+}
+
+[data-bs-theme="dark"] .saudi-pattern-strip {
+  background-image: url('../images/pattern-dark2.jpg');
+}
+
+/* Footer bottom */
+.footer-bottom {
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  padding-bottom: 1rem;
+}
+
+.footer-bottom strong {
+  color: #fff;
+}
+
+.footer-bottom p {
+  margin-bottom: 0;
+}
+
+
+/* ==========================
+   RESPONSIVE DESIGN
+========================== */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+.to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  background: var(--primary, #60d9cb);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 22px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 9999;
+}
+
+.to-top-btn:hover {
+  transform: translateY(-3px);
+  background: var(--accent, #e6b980);
+}
+
+.to-top-btn.show {
+  display: flex;
+  opacity: 1;
+}

@@ -1,0 +1,150 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Heritage - Cultural Treasures{% endblock %}
+
+{% block content %}
+<style>
+.hero-heritage {
+  background: url("{% static 'images/heritage-bg.jpg' %}") center/cover no-repeat;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero-heritage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-heritage h1 {
+  position: relative;
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 0 0 15px #d4af37;
+  animation: fadeInDown 1.5s ease;
+  z-index: 1;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fffaf2;
+}
+
+[data-bs-theme="dark"] .card{
+  background: #1e1e1e;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(212,175,55,0.4);
+}
+
+.card img {
+  height: 230px;
+  object-fit: cover;
+}
+
+.card-title {
+  color: #b68d2c;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.section-title {
+  color: #b68d2c;
+  text-align: center;
+  font-weight: 700;
+  margin: 3rem 0 2rem;
+  text-shadow: 0 0 10px rgba(212,175,55,0.3);
+}
+
+</style>
+
+
+<section class="hero-heritage">
+  <h1>Saudi Arabia’s Timeless Heritage</h1>
+</section>
+
+
+<div class="container py-5">
+  <h2 class="section-title">Cultural Treasures of the Kingdom</h2>
+  <div class="row g-4">
+
+    <div class="col-md-4">
+      <div class="card">
+        <img src="{% static 'images/diryah-pic.png' %}" alt="Diriyah">
+        <div class="card-body">
+          <h5 class="card-title">Diriyah</h5>
+          <p>The birthplace of the Saudi state, where mud-brick palaces and palm groves whisper the story of a proud nation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <img src="{% static 'images/alula-pic.png' %}" alt="AlUla">
+        <div class="card-body">
+          <h5 class="card-title">AlUla</h5>
+          <p>A stunning desert valley filled with ancient tombs, golden cliffs, and modern art installations — a journey through time.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <img src="{% static 'images/madain_saleh_pic.jpg' %}" alt="Madain Saleh">
+        <div class="card-body">
+          <h5 class="card-title">Madain Saleh</h5>
+          <p>A UNESCO World Heritage site — home to the Nabatean tombs carved majestically into sandstone mountains.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <img src="{% static 'images/souq-alzal.png' %}" alt="Souq Al-Zal">
+        <div class="card-body">
+          <h5 class="card-title">Souq Al-Zal</h5>
+          <p>One of Riyadh’s oldest markets — filled with handmade crafts, incense, and the scent of oud that carries nostalgia.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <img src="{% static 'images/jeddah-old-town.png' %}" alt="Jeddah Al-Balad">
+        <div class="card-body">
+          <h5 class="card-title">Jeddah Al-Balad</h5>
+          <p>The historic heart of Jeddah, featuring coral-stone buildings and wooden balconies that tell centuries of trade stories.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <img src="{% static 'images/edge-of-the-world.jpg' %}" alt="Edge of the World">
+        <div class="card-body">
+          <h5 class="card-title">Edge of the World</h5>
+          <p>An awe-inspiring cliff formation offering breathtaking views — a symbol of Saudi Arabia’s vast, untamed beauty.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

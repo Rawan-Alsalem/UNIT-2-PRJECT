@@ -1,0 +1,178 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Festivals - Cultural Treasures{% endblock %}
+
+{% block content %}
+<style>
+.hero-heritage {
+  background: url("{% static 'images/festivalhero.jpeg' %}") center/cover no-repeat;
+  height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+.hero-heritage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+.hero-heritage h1 {
+  position: relative;
+  z-index: 1;
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 0 0 15px #d4af37;
+  animation: fadeInDown 1.5s ease;
+  z-index: 1;
+
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.festival-wrapper {
+  position: relative;
+  margin: 5rem 0;
+}
+.festival-card {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 5rem 0;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  height: 400px; 
+}
+
+.festival-card:hover {
+  transform: translateY(-15px) rotateZ(1deg);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+}
+
+.festival-card img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  transition: transform 0.6s ease;
+}
+
+.festival-card:hover img {
+  transform: scale(1.1) rotateZ(0.5deg);
+}
+
+.festival-text {
+  position: relative;
+  width: 50%;
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem;
+  border-radius: 0 25px 25px 0;
+  background: linear-gradient(to bottom right, rgba(212,175,55,0.25), rgba(255,255,255,0.95));
+}
+
+[data-bs-theme="dark"] .festival-text{
+  background: linear-gradient(to bottom right, rgba(255,255,255,0.95) , rgba(212,175,55,0.25));
+}
+.festival-card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.festival-card:nth-child(even) .festival-text {
+  border-radius: 25px 0 0 25px;
+}
+
+
+.festival-text h2 {
+  font-size: 2rem;
+  color: #b68d2c;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.festival-text p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #3b3b3b;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInReverse {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.section-header {
+  text-align: center;
+  color: #b68d2c;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  font-size: 2rem;
+  text-shadow: 0 0 10px rgba(212,175,55,0.4);
+  z-index: 4;
+}
+</style>
+
+
+<section class="hero-heritage">
+  <h1>Saudi Festivals & Celebrations</h1>
+</section>
+
+<div class="container py-5">
+  <h2 class="section-header">Step Inside the Magic of Saudi Festivals</h2>
+
+  <div class="festival-wrapper">
+    <div class="festival-card">
+      <img src="{% static 'images/janadriyah.jpg' %}" alt="Janadriyah Festival">
+      <div class="festival-text">
+        <h2>Janadriyah Festival</h2>
+        <p>Immerse yourself in the heart of tradition as music, crafts, and stories from across Saudi Arabia come alive. Taste authentic dishes, explore colorful markets, and witness the soul of heritage in every moment.</p>
+      </div>
+    </div>
+
+    <div class="festival-card">
+      <img src="{% static 'images/riyadhseason.png' %}" alt="Riyadh Season">
+      <div class="festival-text">
+        <h2>Riyadh Season</h2>
+        <p>The city transforms into a dazzling world of lights, concerts, and entertainment. From stunning performances to immersive events, every street feels alive with excitement and wonder.</p>
+      </div>
+    </div>
+
+    <div class="festival-card">
+      <img src="{% static 'images/almoussem.png' %}" alt="Souk Okaz">
+      <div class="festival-text">
+        <h2>Souk Okaz</h2>
+        <p>Step back in time at the historic market where poetry, storytelling, and art converge. Experience the richness of Arab culture while enjoying lively performances and captivating displays.</p>
+      </div>
+    </div>
+
+    <div class="festival-card">
+      <img src="{% static 'images/dammamfestival.png' %}" alt="Dammam Festival">
+      <div class="festival-text">
+        <h2>Dammam Festival</h2>
+        <p>A vibrant coastal celebration full of colorful parades, local flavors, and live performances. Discover the spirit of the Eastern Province in an unforgettable, joyous atmosphere.</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

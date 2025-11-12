@@ -1,0 +1,137 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Art - Cultural Treasures{% endblock %}
+
+{% block content %}
+<style>
+
+.hero-heritage {
+  background: url("{% static 'images/art-hero.jpg' %}") center/cover no-repeat;
+  height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+.hero-heritage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.hero-heritage h1 {
+  position: relative;
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 0 0 15px #d4af37;
+  animation: fadeInDown 1.5s ease;
+  z-index: 1;
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.art-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5rem 0;
+}
+.art-section:nth-child(even) {
+  flex-direction: row-reverse;
+}
+.art-section img {
+  width: 48%;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  transition: transform 0.5s ease;
+}
+.art-section img:hover {
+  transform: scale(1.03);
+}
+.art-content {
+  width: 48%;
+  background: rgba(255, 250, 242, 0.85);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(212,175,55,0.3);
+  animation: fadeIn 1.2s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.art-content h2 {
+  color: #b68d2c;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.art-content p {
+  color: #3b3b3b;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+[data-bs-theme="dark"] .art-content{
+  background: #1e1e1e;
+  color: white;
+}
+[data-bs-theme="dark"] .art-content P{
+  color: white;
+}
+
+.section-header {
+  text-align: center;
+  color: #b68d2c;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  font-size: 2rem;
+  text-shadow: 0 0 10px rgba(212,175,55,0.4);
+}
+</style>
+
+<section class="hero-heritage">
+  <h1>Art of Saudi Arabia</h1>
+</section>
+
+<div class="container py-5">
+  <h2 class="section-header">A Journey Through Saudi Creativity</h2>
+
+  <div class="art-section">
+    <img src="{% static 'images/saudi-calligraphy.jpg' %}" alt="Arabic Calligraphy Art">
+    <div class="art-content">
+      <h2>Arabic Calligraphy</h2>
+      <p>Saudi artists transform words into visual poetry, blending the elegance of Arabic letters with modern techniques. This timeless art celebrates faith, beauty, and the Arabic identity.</p>
+    </div>
+  </div>
+
+  <div class="art-section">
+    <img src="{% static 'images/Love-in-the-time.jpg' %}" alt="Contemporary Art Saudi">
+    <div class="art-content">
+      <h2>Oil and acrylic paintings</h2>
+      <p>Saudi artist Fatimah Al Nemer’s intricate portrayal of the modern female captures the beauty of tradition in present times.</p>
+    </div>
+  </div>
+
+  <div class="art-section">
+    <img src="{% static 'images/Sadu-weaving.jpg' %}" alt="Traditional Weaving">
+    <div class="art-content">
+      <h2>Traditional Weaving (Al-Sadu)</h2>
+      <p>Sadu weaving is one of the most prominent Saudi heritage arts, embodying the Bedouin identity through its vibrant colors and harmonious geometric patterns. </p>
+    </div>
+  </div>
+
+  <div class="art-section">
+    <img src="{% static 'images/sculpture.jpg' %}" alt="Sculptures">
+    <div class="art-content">
+      <h2>Saudi Sculptures</h2>
+      <p>D&Z Art Sculptures is a custom-made Saudi Arabian modern large-scale urban public art sculpture made of stainless steel and polished to a mirror effect. </p>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,254 @@
+{% extends 'main/base.html' %} {% load static %} 
+{% block title %}Architecture - Cultural Treasures{% endblock %} {% block content %}
+<style>
+  .hero-architecture {
+    background: url("{% static 'images/architecture-hero.jpg' %}") center/cover
+      no-repeat;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-architecture::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
+  }
+  .hero-architecture h1 {
+    position: relative;
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 0 0 15px #d4af37;
+    animation: fadeInDown 1.5s ease;
+    z-index: 1;
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  
+  .hero-architecture::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.1) 1%,
+        transparent 1%
+      )
+      0 0 / 50px 50px;
+    animation: floatGlow 30s linear infinite;
+  }
+  @keyframes floatGlow {
+    from {
+      transform: translate(0, 0);
+    }
+    to {
+      transform: translate(-50px, -50px);
+    }
+  }
+
+  
+  .section-header {
+    text-align: center;
+    color: #b68d2c;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 4rem 0 2rem;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    letter-spacing: 1px;
+  }
+
+  
+  .timeline {
+    position: relative;
+    margin: 4rem 0;
+    padding-left: 2rem;
+    border-left: 3px solid #b68d2c;
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 2rem;
+    animation: fadeIn 1.2s ease;
+  }
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 0.5rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #b68d2c;
+    box-shadow: 0 0 15px #b68d2c;
+  }
+  .timeline-item h3 {
+    color: #b68d2c;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .timeline-item p {
+    color: #3b3b3b;
+    line-height: 1.7;
+  }
+
+  [data-bs-theme="dark"] .timeline-item p {
+    color: white;
+  }
+
+  [data-bs-theme="dark"] .future-architecture {
+    background: #1e1e1e;
+  }
+
+  
+  [data-bs-theme="dark"] .future-architecture p {
+    color: white;
+  }
+
+  .timeline-item img {
+    width: 80%;
+    border-radius: 15px;
+    margin-top: 1rem;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease;
+  }
+  .timeline-item img:hover {
+    transform: scale(1.05);
+  }
+
+  
+  .future-architecture {
+    background: linear-gradient(135deg, #fffaf2, #f7f2e7);
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+    padding: 3rem;
+    text-align: center;
+    animation: fadeUp 1.3s ease;
+  }
+  .future-architecture h2 {
+    color: #b68d2c;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+  .future-architecture p {
+    color: #3b3b3b;
+    font-size: 1.15rem;
+    line-height: 1.8;
+  }
+  .future-architecture img {
+    width: 80%;
+    border-radius: 20px;
+    margin-top: 2rem;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+
+<section class="hero-architecture">
+  <h1>Architectural Wonders of Saudi Arabia</h1>
+</section>
+
+<div class="container">
+  <h2 class="section-header">A Journey Through Time</h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>Ancient Clay Heritage</h3>
+      <p>
+        In the heart of Najd, mud-brick fortresses like Diriyah stood tall —
+        their earthy tones blending seamlessly with the desert landscape,
+        symbolizing strength and unity.
+      </p>
+      <div class="text-center">
+        <img
+          src="{% static 'images/diryah-pic.png' %}"
+          alt="Diriyah Architecture"
+        />
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Hijazi Elegance</h3>
+      <p>
+        The western region introduced intricate wooden latticework, known as
+        *Rawasheen*, adorning the coral-stone homes of Jeddah’s Al-Balad — a
+        testimony to craftsmanship and coastal charm.
+      </p>
+      <div class="text-center">
+        <img
+          src="{% static 'images/jeddah-architecture.jpg' %}"
+          alt="Jeddah Architecture"
+          class="img-fluid"
+        />
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Modern Renaissance</h3>
+      <p>
+        Today, cities like Riyadh redefine skylines with sleek glass towers and
+        visionary designs that merge cultural identity with futuristic
+        innovation.
+      </p>
+      <div class="text-center">
+        <img
+          src="{% static 'images/riyadh-modern.jpg' %}"
+          class="h-25"
+          alt="Riyadh Modern Architecture"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-5">
+  <div class="future-architecture">
+    <h2>The Future of Saudi Design</h2>
+    <p>
+      Projects like NEOM and The Line push imagination beyond limits, fusing
+      technology, sustainability, and art into living spaces of tomorrow. Saudi
+      Arabia’s architecture stands not just as shelter, but as a statement — a
+      dialogue between past and future, earth and sky.
+    </p>
+    <img src="{% static 'images/neom-line.jpg' %}" alt="Neom The Line" />
+  </div>
+</div>
+
+{% endblock %}
